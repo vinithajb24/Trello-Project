@@ -62,6 +62,13 @@ class Login extends Component {
         <div className="container">
           <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
           <button onClick={this.google} id="google" className="google">
+            <span>
+              <img
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-download-icons-18.png"
+                alt="/"
+                className="googleimg"
+              ></img>
+            </span>{" "}
             Sign In with Google
           </button>
         </div>

@@ -6,7 +6,9 @@ import { CardContainer } from "../styles/Card.styles";
 import * as UtilsHelper from "../helpers/utils";
 import ContentEditable from "./ContentEditable";
 import IconButton from "./IconButton";
-import CardModal from "./CardModal";
+// import ModalApp from "./Modal/ModalApp";
+import useModal from "./Modal/useModal";
+import { Link } from "react-router-dom";
 
 const Card = ({
   card,
@@ -27,6 +29,7 @@ const Card = ({
   }, [editMode]);
 
   const [cardContent, setCardContent] = useState(card.content);
+  const { show, RenderModal } = useModal();
 
   useEffect(() => {
     setCardContent(card.content);
@@ -92,10 +95,11 @@ const Card = ({
             {true && !editMode && (
               <>
                 <IconButton.ButtonContainer right="62px">
-                  <IconButton onClick={CardModal} iconType="click" />
+                  <IconButton onClick={show} iconType="click"></IconButton>
                 </IconButton.ButtonContainer>
               </>
             )}
+
             <ContentEditable
               innerRef={ref}
               disabled={!editMode}
@@ -106,6 +110,24 @@ const Card = ({
           </CardContainer>
         )}
       </Draggable>
+      {
+        <div>
+          <div>
+            <RenderModal>
+              <p className="modal_para">Creating a Trello project Document</p>
+              <p className="modal_para">Description</p>
+              <textarea
+                placeholder="Add a more Detaild Description"
+                rows={5}
+                cols={30}
+              />
+              <p className="modal_para1">ACTIONS</p>
+              <Link class="button-link">Share</Link>
+            </RenderModal>
+          </div>
+          <div id="modal-root" />
+        </div>
+      }
     </OutsideClickHandler>
   );
 };
