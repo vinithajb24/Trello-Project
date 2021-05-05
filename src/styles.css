@@ -61,6 +61,8 @@ body {
   background-color: #0079bf;
   color: white;
   background-image: linear-gradient(to right, #0c0358, #a00da0);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .bLlQiv {
@@ -84,12 +86,6 @@ body {
   cursor: pointer;
 }
 
-svg.svg-inline--fa.fa-search.fa-w-16 {
-  display: none;
-}
-input.sc-jRQAMF.bLlQiv {
-  display: none;
-}
 .iwVAed {
   margin-top: 85px !important;
 }
@@ -98,4 +94,9 @@ input.sc-jRQAMF.bLlQiv {
   outline: none;
   overflow: hidden;
   padding: 14px;
+  margin: 10px;
+}
+.googleimg {
+  width: 25px;
+  margin-right: 4px;
 }

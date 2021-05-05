@@ -18,20 +18,16 @@ import {
   duplicateCard,
   duplicateList,
 } from "../actions/boardActions";
-import CardModal from "../components/CardModal";
 
 const Board = (props) => {
   const onDragEnd = (result) => {
     const { source, destination, draggableId } = result;
-    // dropped outside the list
     if (!destination) {
       return;
     }
     if (source.droppableId === destination.droppableId) {
-      // Dropped in the same list
       props.reOrderList(source.droppableId, source.index, destination.index);
     } else {
-      // Drop in other list
       props.moveCardToList(
         source.droppableId,
         draggableId,
@@ -77,7 +73,6 @@ const Board = (props) => {
           maxWidth="220px"
         />
       </BoardContainer>
-      <CardModal />
     </div>
   );
 };
